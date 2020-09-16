@@ -163,6 +163,10 @@
 export default {
   name: 'VuePaycard',
   props: {
+    flipCard: {
+      type: Boolean,
+      default: false,
+    },
     valueFields: {
       type: Object,
       required: true
@@ -212,6 +216,9 @@ export default {
     currentPlaceholder: '#### #### #### ####'
   }),
   watch: {
+    flipCard (val) {
+      this.isCardFlipped = val;
+    },
     currentFocus () {
       if (this.currentFocus) {
         this.changeFocus()
